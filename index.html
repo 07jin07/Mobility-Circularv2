@@ -11,107 +11,40 @@
             font-family: 'Yu Gothic', '游ゴシック', YuGothic, '游ゴシック体', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
         }
 
-        /* スライド全体のコンテナ */
-        .slide-container {
-            width: 100%;
-            max-width: 1100px; /* PCでの最大幅 */
-            height: 620px; /* 16:9に近い比率 */
-            position: relative;
+        /* グラデーションテキスト */
+        .gradient-text {
+            background-image: linear-gradient(to right, #3b82f6, #60a5fa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* セクションカード */
+        .section-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e5e7eb;
             overflow: hidden;
-            border: 1px solid #e2e8f0;
-            border-radius: 0.5rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            margin: 2rem auto;
-            background-color: #f8fafc;
-        }
-
-        /* 各スライドの基本スタイル */
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            padding: 2.5rem 3.5rem;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.6s ease-in-out, visibility 0.6s;
-            display: flex;
-            flex-direction: column;
-            background-color: #ffffff;
-        }
-
-        /* アクティブなスライド */
-        .slide.active {
-            opacity: 1;
-            visibility: visible;
-            z-index: 10;
-        }
-        
-        /* スライドヘッダー */
-        .slide-header {
-            border-bottom: 2px solid #3b82f6;
-            padding-bottom: 0.75rem;
-            margin-bottom: 1.5rem;
-        }
-
-        /* スライドコンテンツ */
-        .slide-content {
-            flex-grow: 1;
         }
 
         /* ワンメッセージ */
         .one-message {
             text-align: center;
             padding: 1rem;
-            background-color: #f1f5f9;
-            border-top: 2px solid #3b82f6;
-            margin: 1.5rem -3.5rem -2.5rem; /* パディングを相殺 */
+            background-color: #eff6ff;
+            border-top: 2px solid #93c5fd;
+            margin: 2.5rem -2.5rem -2.5rem; /* パディングを相殺 */
             font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        /* ナビゲーションボタン */
-        .nav-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 20;
-            background-color: rgba(0, 0, 0, 0.4);
-            color: white;
-            border: none;
-            padding: 0.75rem;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .nav-button:hover {
-            background-color: rgba(0, 0, 0, 0.6);
-        }
-        #prevBtn { left: 1rem; }
-        #nextBtn { right: 1rem; }
-
-        /* ページ番号 */
-        .page-number {
-            position: absolute;
-            bottom: 1rem;
-            right: 1.5rem;
-            z-index: 15;
-            font-size: 0.875rem;
-            color: #64748b;
+            font-size: 1.125rem;
+            color: #1e40af;
         }
         
-        /* 図やチャートのためのユーティリティクラス */
-        .flow-arrow {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #6b7280;
-            font-size: 2rem;
-            margin: 0 0.5rem;
-        }
+        /* コンセプト図のボックス */
         .concept-box {
-            border: 2px solid #9ca3af;
+            border: 2px solid #d1d5db;
             border-radius: 0.5rem;
             padding: 1rem;
             text-align: center;
@@ -119,146 +52,73 @@
             height: 100%;
         }
         .concept-box-highlight {
-            border-color: #3b82f6;
+            border-color: #60a5fa;
             background-color: #eff6ff;
         }
-
-        /* フライホイール図 */
-        .flywheel-container {
-            position: relative;
-            width: 380px;
-            height: 380px;
-            margin: 0 auto;
+        
+        /* 参考文献リスト */
+        .reference-list {
+            list-style-type: decimal;
+            padding-left: 1.5rem;
         }
-        .flywheel-core {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            background-color: #3b82f6;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            font-weight: bold;
-            z-index: 5;
-            padding: 1rem;
-        }
-        .flywheel-segment {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 150px;
-            height: 150px;
-            background-color: #f1f5f9;
-            border: 2px solid #cbd5e1;
-            border-radius: 0.5rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 0.5rem;
-        }
-        .flywheel-arrow {
-            position: absolute;
-            font-size: 2.5rem;
-            color: #3b82f6;
-            z-index: 4;
-        }
-
-
-        /* レスポンシブ対応 */
-        @media (max-width: 1100px) {
-            .slide-container {
-                height: auto;
-                aspect-ratio: 16 / 9; /* 高さを幅に追従させる */
-                margin: 1rem;
-            }
-            .slide {
-                padding: 1.5rem 2rem;
-            }
-            .one-message {
-                margin: 1.5rem -2rem -1.5rem;
-            }
-        }
-        @media (max-width: 768px) {
-            .slide {
-                padding: 1rem 1.5rem;
-            }
-             .one-message {
-                margin: 1rem -1.5rem -1rem;
-                font-size: 1rem;
-            }
-            h1 { font-size: 1.5rem; }
-            h2 { font-size: 1.25rem; }
-            body { font-size: 0.875rem; }
-            .concept-box { padding: 0.5rem; }
+        .reference-list li {
+            margin-bottom: 0.75rem;
+            word-break: break-all;
         }
 
     </style>
 </head>
-<body class="bg-slate-100 font-custom">
+<body class="bg-slate-50 font-custom">
 
-    <div class="p-4 text-center">
-        <h1 class="text-3xl font-bold text-gray-800">自動車サーキュラーエコノミー・フライホイール</h1>
-        <p class="text-lg text-gray-600">リース、素材、金融におけるデータ駆動型エコシステムの戦略的青写真</p>
-    </div>
+    <main class="max-w-4xl mx-auto p-4 sm:p-8">
 
-    <div class="slide-container">
-        <!-- Slide 1: Title -->
-        <section class="slide active">
-            <div class="m-auto text-center">
-                <h1 class="text-5xl font-bold text-gray-800 leading-tight">自動車サーキュラーエコノミー・<br>フライホイール</h1>
-                <p class="text-2xl text-gray-600 mt-4">リース、素材、金融におけるデータ駆動型エコシステムの戦略的青写真</p>
-                <div class="mt-12 pt-8 border-t-2 border-gray-200">
-                    <p class="text-xl text-gray-700">貴社向けご提案</p>
-                    <p class="text-lg text-gray-500 mt-2">2025年6月18日</p>
-                </div>
-            </div>
-            <div class="one-message">
-                本提案は、単なる個別最適ではない。「金融」「運用」「素材」が相互に価値を高め合う「フライホイール」を構築し、持続的な競争優位を確立する戦略である。
+        <!-- Section 1: Title -->
+        <section class="text-center my-12">
+            <h1 class="text-5xl font-bold text-gray-800 leading-tight gradient-text">自動車サーキュラーエコノミー・<br>フライホイール</h1>
+            <p class="text-xl text-gray-600 mt-4">リース、素材、金融におけるデータ駆動型エコシステムの戦略的青写真</p>
+            <div class="mt-12 pt-8">
+                <p class="text-lg text-gray-700">Jin Yoshino</p>
+                <p class="text-base text-gray-500 mt-2">2025年6月18日</p>
             </div>
         </section>
 
-        <!-- Slide 2: Executive Summary -->
-        <section class="slide">
-            <div class="slide-header">
-                <h2 class="text-2xl font-bold text-gray-700">Executive Summary：提案の全体像</h2>
-            </div>
-            <div class="slide-content grid grid-cols-12 gap-6 items-center h-full">
-                <div class="col-span-7">
-                    <h3 class="text-xl font-semibold text-blue-600 mb-4">３つのビジネスモデルが連携する「フライホイール」</h3>
-                    <p class="mb-4">本提案は、自動車ライフサイクルデータを活用した３つの相互連携するビジネスモデルです。これらは単独で機能するのではなく、相互に強化しあう「フライホイール」として、持続可能で収益性の高いエコシステムを構築します。</p>
-                    <ul class="list-disc list-inside space-y-2 text-gray-700">
-                        <li><strong class="text-blue-600">金融イノベーション</strong>がEVフリート導入を加速させ、</li>
-                        <li>それが<strong class="text-green-600">データとマテリアルフロー</strong>を生み出し、</li>
-                        <li>収益性の高い<strong class="text-yellow-600">循環型素材経済</strong>を駆動し、</li>
-                        <li>最終的に最初の<strong class="text-blue-600">金融モデルのリスクを低減</strong>する。</li>
+        <!-- Section 2: Executive Summary (Corrected) -->
+        <section class="section-card">
+            <h2 class="text-2xl font-bold text-gray-800 border-b-2 border-blue-200 pb-3 mb-6">Executive Summary：提案の全体像</h2>
+            <div class="grid md:grid-cols-12 gap-8 items-center">
+                <div class="md:col-span-7">
+                    <h3 class="text-xl font-semibold text-blue-700 mb-4">３つのビジネスモデルが連携する「フライホイール」</h3>
+                    <p class="mb-4 text-gray-700">本提案は、自動車ライフサイクルデータを活用した３つの相互連携するビジネスモデルである。これらは単独で機能するのではなく、相互に強化しあう「フライホイール」として、持続可能で収益性の高いエコシステムを構築するものである。</p>
+                    <ul class="list-none space-y-3 text-gray-800">
+                        <li class="flex items-start"><span class="text-blue-500 font-bold mr-2">1.</span> <div><strong class="text-blue-600">金融イノベーション</strong>がEVフリート導入を加速させる。</div></li>
+                        <li class="flex items-start"><span class="text-blue-500 font-bold mr-2">2.</span> <div>それが<strong class="text-blue-600">データとマテリアルフロー</strong>を生み出す。</div></li>
+                        <li class="flex items-start"><span class="text-blue-500 font-bold mr-2">3.</span> <div>収益性の高い<strong class="text-blue-600">循環型素材経済</strong>を駆動する。</div></li>
+                        <li class="flex items-start"><span class="text-blue-500 font-bold mr-2">4.</span> <div>最終的に最初の<strong class="text-blue-600">金融モデルのリスクを低減</strong>する。</div></li>
                     </ul>
-                     <p class="mt-4">この好循環の創出こそが、本戦略の核心です。</p>
+                     <p class="mt-4 text-gray-700">この好循環の創出こそが、本戦略の核心である。</p>
                 </div>
-                <div class="col-span-5 flex items-center justify-center">
+                <div class="md:col-span-5 flex items-center justify-center min-h-[300px]">
                      <div class="relative w-80 h-80">
-                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-36 h-36 rounded-full bg-blue-600 text-white flex items-center justify-center text-center font-bold z-10 p-2">サーキュラー・<br>フライホイール</div>
-                        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-24 rounded-lg bg-blue-100 border-2 border-blue-400 flex flex-col items-center justify-center p-2 text-center">
-                            <span class="font-bold text-sm">モデル3: 金融</span>
-                            <span class="text-xs">BaaS & 証券化</span>
+                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 rounded-full bg-gradient-to-br from-blue-600 to-blue-400 text-white flex items-center justify-center text-center font-bold z-10 p-2 shadow-lg">サーキュラー・<br>フライホイール</div>
+                        
+                        <div class="absolute top-0 left-1/2 -translate-x-1/2 p-2 text-center rounded-lg bg-blue-50 border-2 border-blue-200 w-32"><span class="font-bold text-sm text-blue-800">金融</span><span class="text-xs block">BaaS & 証券化</span></div>
+                        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 p-2 text-center rounded-lg bg-blue-50 border-2 border-blue-200 w-32"><span class="font-bold text-sm text-blue-800">素材</span><span class="text-xs block">再生材市場</span></div>
+                        <div class="absolute left-0 top-1/2 -translate-y-1/2 p-2 text-center rounded-lg bg-blue-50 border-2 border-blue-200 w-32"><span class="font-bold text-sm text-blue-800">リース</span><span class="text-xs block">スマートフリート</span></div>
+                        
+                        <div class="absolute w-full h-full">
+                            <svg viewBox="0 0 200 200" class="w-full h-full">
+                                <circle cx="100" cy="100" r="80" fill="none" stroke="#dbeafe" stroke-width="2" stroke-dasharray="8 4"/>
+                                <!-- Arrow from 金融 to リース -->
+                                <path d="M 100,20 A 60,60 0 0,1 20,100" stroke="#60a5fa" stroke-width="2" fill="none"/>
+                                <path d="M 15,100 L 25,105 L 25,95 Z" fill="#60a5fa" />
+                                <!-- Arrow from リース to 素材 -->
+                                <path d="M 20,100 A 60,60 0 0,1 100,180" stroke="#60a5fa" stroke-width="2" fill="none"/>
+                                <path d="M 100,185 L 95,175 L 105,175 Z" fill="#60a5fa" />
+                                 <!-- Arrow from 素材 back to 金融 -->
+                                <path d="M 100,180 A 100 100 0 0 1 100 20" stroke="#60a5fa" stroke-width="2" fill="none" />
+                                <path d="M 105,20 L 95,20 L 100,15 Z" fill="#60a5fa" />
+                            </svg>
                         </div>
-                         <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-40 h-24 rounded-lg bg-yellow-100 border-2 border-yellow-400 flex flex-col items-center justify-center p-2 text-center">
-                            <span class="font-bold text-sm">モデル2: 素材</span>
-                            <span class="text-xs">再生材市場</span>
-                        </div>
-                         <div class="absolute left-0 top-1/2 -translate-y-1/2 w-40 h-24 rounded-lg bg-green-100 border-2 border-green-400 flex flex-col items-center justify-center p-2 text-center">
-                            <span class="font-bold text-sm">モデル1: リース</span>
-                            <span class="text-xs">スマートフリート</span>
-                        </div>
-                        <svg class="absolute w-full h-full" viewBox="0 0 100 100"><path d="M 50,5 A 45,45 0 1 1 49.9,5" fill="none" stroke="#93c5fd" stroke-width="4" stroke-dasharray="8 4" id="flywheel-path-1"/></svg>
-                        <svg class="absolute w-full h-full animate-spin" style="animation-duration: 20s;" viewBox="0 0 100 100"><path d="M 50,5 A 45,45 0 1 1 49.9,5" fill="none" stroke="transparent" stroke-width="4" id="flywheel-path-2"/><text fill="#3b82f6" font-size="10"><textPath href="#flywheel-path-2" startOffset="18%">➤</textPath><textPath href="#flywheel-path-2" startOffset="50%">➤</textPath><textPath href="#flywheel-path-2" startOffset="82%">➤</textPath></text></svg>
                     </div>
                 </div>
             </div>
@@ -267,106 +127,102 @@
             </div>
         </section>
         
-        <!-- Slide 3: New Competitive Area -->
-        <section class="slide">
-            <div class="slide-header">
-                <h2 class="text-2xl font-bold text-gray-700">Part I 基盤：新たな競争領域</h2>
-            </div>
-            <div class="slide-content flex flex-col justify-center">
-                <h3 class="text-xl font-semibold text-center mb-6">競争領域の変化：リニアからサーキュラーバリューチェーンへ</h3>
-                <div class="grid grid-cols-2 gap-8 items-center">
-                    <div class="border-2 border-gray-300 rounded-lg p-4 bg-gray-50">
-                        <h4 class="text-lg font-bold text-center text-gray-600 mb-4">従来のリニアモデル</h4>
-                        <div class="flex items-center justify-between text-center text-sm">
-                            <div class="w-1/4">採掘</div>
-                            <div class="w-auto text-gray-400 text-2xl">&rarr;</div>
-                            <div class="w-1/4">製造</div>
-                             <div class="w-auto text-gray-400 text-2xl">&rarr;</div>
-                            <div class="w-1/4">使用</div>
-                             <div class="w-auto text-gray-400 text-2xl">&rarr;</div>
-                            <div class="w-1/4">廃棄</div>
-                        </div>
-                        <p class="text-xs text-gray-500 mt-4">一方向の価値の流れ。廃棄物はコスト。</p>
+        <!-- Section 3: New Competitive Area -->
+        <section class="section-card">
+            <h2 class="text-2xl font-bold text-gray-800 border-b-2 border-blue-200 pb-3 mb-6">Part I 基盤：新たな競争領域</h2>
+            <h3 class="text-xl font-semibold text-center mb-6 text-gray-700">競争領域の変化：リニアからサーキュラーバリューチェーンへ</h3>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="border-2 border-gray-300 rounded-lg p-6 bg-gray-50">
+                    <h4 class="text-lg font-bold text-center text-gray-600 mb-4">従来のリニアモデル</h4>
+                    <div class="flex items-center justify-around text-center text-sm">
+                        <span>採掘</span><span class="text-gray-400 text-2xl">&rarr;</span><span>製造</span><span class="text-gray-400 text-2xl">&rarr;</span><span>使用</span><span class="text-gray-400 text-2xl">&rarr;</span><span>廃棄</span>
                     </div>
-                     <div class="border-2 border-blue-500 rounded-lg p-4 bg-blue-50">
-                        <h4 class="text-lg font-bold text-center text-blue-700 mb-4">これからのサーキュラーモデル</h4>
-                        <div class="relative w-full h-24">
-                           <div class="absolute top-0 left-1/2 -translate-x-1/2 text-sm">製造</div>
-                           <div class="absolute top-1/2 left-0 -translate-y-1/2 text-sm">再利用</div>
-                           <div class="absolute top-1/2 right-0 -translate-y-1/2 text-sm">使用</div>
-                           <div class="absolute bottom-0 left-1/2 -translate-x-1/2 text-sm">回収</div>
-                           <svg class="absolute w-full h-full" viewBox="0 0 100 100"><path d="M 50,10 A 40,40 0 1 1 49.9,10" fill="none" stroke="#60a5fa" stroke-width="2" stroke-dasharray="4 2"/><text fill="#3b82f6" font-size="8"><textPath href="#flywheel-path-2" startOffset="10%">▶</textPath><textPath href="#flywheel-path-2" startOffset="35%">▶</textPath><textPath href="#flywheel-path-2" startOffset="60%">▶</textPath><textPath href="#flywheel-path-2" startOffset="85%">▶</textPath></text></svg>
-                        </div>
-                        <p class="text-xs text-blue-600 mt-4">価値の循環。廃棄物は資源。</p>
-                    </div>
+                    <p class="text-sm text-gray-600 mt-4 text-center">一方向の価値の流れ。廃棄物はコストとなる。</p>
                 </div>
-                 <p class="mt-8 text-center text-gray-700">EUのバッテリー規則やELV規則案に代表される規制強化は、このパラダイムシフトを不可逆なものにしています。<br>企業の競争力は、ライフサイクル全体を管理し、価値を引き出す能力に依存するようになります。</p>
+                 <div class="border-2 border-blue-400 rounded-lg p-6 bg-blue-50">
+                    <h4 class="text-lg font-bold text-center text-blue-700 mb-4">これからのサーキュラーモデル</h4>
+                    <div class="relative w-48 h-48 mx-auto">
+                        <div class="absolute inset-0 border-4 border-blue-300 border-dashed rounded-full"></div>
+                         <svg class="absolute w-full h-full" viewBox="0 0 100 100">
+                             <defs>
+                                <path id="circlePath" d="M 10, 50 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0" fill="none"/>
+                             </defs>
+                             <text font-size="12" fill="#3b82f6">
+                                 <textPath href="#circlePath" startOffset="18%">&#10144;</textPath>
+                                 <textPath href="#circlePath" startOffset="43%">&#10144;</textPath>
+                                 <textPath href="#circlePath" startOffset="68%">&#10144;</textPath>
+                                 <textPath href="#circlePath" startOffset="93%">&#10144;</textPath>
+                             </text>
+                        </svg>
+                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-bold text-blue-800">価値循環</div>
+                        <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-3 text-sm bg-blue-50 px-1">製造</div>
+                        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-3 text-sm bg-blue-50 px-1">回収</div>
+                        <div class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3 text-sm bg-blue-50 px-1">再利用</div>
+                        <div class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-3 text-sm bg-blue-50 px-1">使用</div>
+                    </div>
+                    <p class="text-sm text-blue-700 mt-4 text-center">価値の循環。廃棄物は資源となる。</p>
+                </div>
             </div>
+             <p class="mt-8 text-center text-gray-700">EUのバッテリー規則やELV規則案に代表される規制強化は、このパラダイムシフトを不可逆なものとしている。<br>企業の競争力は、ライフサイクル全体を管理し、価値を引き出す能力に依存するようになる。</p>
             <div class="one-message">
                 競争の主戦場は「製造」から「ライフサイクル全体」へ。規制対応はコストではなく、事業機会である。
             </div>
         </section>
 
-        <!-- Slide 4: Digital Backbone -->
-        <section class="slide">
-            <div class="slide-header">
-                <h2 class="text-2xl font-bold text-gray-700">Part I 基盤：デジタルバックボーン</h2>
-            </div>
-            <div class="slide-content flex flex-col justify-center">
-                 <h3 class="text-xl font-semibold text-center mb-6">Ouranos EcosystemとCatena-Xの連携</h3>
-                 <div class="flex justify-center items-center space-x-4">
-                    <div class="w-1/3 p-4 bg-green-100 border-2 border-green-400 rounded-lg text-center">
-                        <h4 class="font-bold">Ouranos Ecosystem</h4>
-                        <p class="text-sm">日本国内のデータ基盤</p>
-                    </div>
-                    <div class="text-center">
-                         <div class="text-sm">データ交換<br>(CFPデータ等)</div>
-                         <div class="text-3xl text-blue-500 font-bold my-2">&harr;</div>
-                         <div class="p-2 bg-gray-200 rounded-md text-sm">相互運用性 (PoC成功)</div>
-                    </div>
-                     <div class="w-1/3 p-4 bg-purple-100 border-2 border-purple-400 rounded-lg text-center">
-                        <h4 class="font-bold">Catena-X</h4>
-                        <p class="text-sm">欧州のデータ基盤</p>
-                    </div>
-                 </div>
-                 <div class="mt-8 text-gray-700">
-                    <p class="mb-2"><strong>国境を越えたデータ連携が、理論から実践の段階へ：</strong></p>
-                    <ul class="list-disc list-inside space-y-1">
-                        <li>OuranosとCatena-Xの相互運用性実証（PoC）成功は、ゲームチェンジャーです。</li>
-                        <li>日本企業は国内基盤を使い、EUの厳格な規制（バッテリーパスポート等）に準拠する具体的道筋を得ました。</li>
-                        <li>参加企業は規制遵守への明確な経路を持つことで「先行者利益」を獲得し、強力なネットワーク効果が生まれます。</li>
-                    </ul>
-                 </div>
-            </div>
+        <!-- Section 4: Digital Backbone -->
+        <section class="section-card">
+            <h2 class="text-2xl font-bold text-gray-800 border-b-2 border-blue-200 pb-3 mb-6">Part I 基盤：デジタルバックボーン</h2>
+            <h3 class="text-xl font-semibold text-center mb-8 text-gray-700">Ouranos EcosystemとCatena-Xの連携</h3>
+             <div class="flex justify-center items-center space-x-4">
+                <div class="w-1/3 p-6 bg-blue-50 border-2 border-blue-200 rounded-lg text-center">
+                    <h4 class="font-bold text-blue-800">Ouranos Ecosystem</h4>
+                    <p class="text-sm text-blue-700">日本国内のデータ基盤</p>
+                </div>
+                <div class="text-center">
+                     <div class="text-sm text-gray-600">データ交換<br>(CFPデータ等)</div>
+                     <div class="text-4xl text-blue-500 font-bold my-2">&harr;</div>
+                     <div class="p-2 bg-gray-200 rounded-md text-sm text-gray-800 font-semibold">相互運用性 (PoC成功)</div>
+                </div>
+                 <div class="w-1/3 p-6 bg-blue-50 border-2 border-blue-200 rounded-lg text-center">
+                    <h4 class="font-bold text-blue-800">Catena-X</h4>
+                    <p class="text-sm text-blue-700">欧州のデータ基盤</p>
+                </div>
+             </div>
+             <div class="mt-8 text-gray-700 bg-gray-50 p-6 rounded-lg">
+                <p class="mb-3"><strong>国境を越えたデータ連携が、理論から実践の段階へ：</strong></p>
+                <ul class="list-disc list-inside space-y-2">
+                    <li>OuranosとCatena-Xの相互運用性実証（PoC）成功は、ゲームチェンジャーである。</li>
+                    <li>日本企業は国内基盤を使い、EUの厳格な規制（バッテリーパスポート等）に準拠する具体的道筋を得た。</li>
+                    <li>参加企業は規制遵守への明確な経路を持つことで「先行者利益」を獲得し、強力なネットワーク効果が生まれる。</li>
+                </ul>
+             </div>
             <div class="one-message">
                 Ouranos/Catena-Xの連携は、国境を越えたデータ駆動型ビジネスの技術的基盤を確立した。
             </div>
         </section>
 
-        <!-- Slide 5: Biz Model 1 - Overview -->
-        <section class="slide">
-            <div class="slide-header">
-                <h2 class="text-2xl font-bold text-gray-700">Part II ビジネスモデル1：スマートフリート・エコシステム</h2>
-            </div>
-             <div class="slide-content grid grid-cols-2 gap-8 items-center">
+        <!-- Section 5: Biz Model 1 - Overview -->
+        <section class="section-card">
+            <h2 class="text-2xl font-bold text-gray-800 border-b-2 border-blue-200 pb-3 mb-6">Part II ビジネスモデル1：スマートフリート・エコシステム</h2>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
                 <div>
-                    <h3 class="text-xl font-semibold text-green-700 mb-4">価値提案：モビリティからエネルギーレジリエンスへ</h3>
-                    <p class="mb-3">中古EVの再販課題を事業機会へ転換します。ターゲットは、環境目標とBCP対策に意欲的な自治体や法人です。</p>
-                    <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded-r-lg">
-                        <p class="font-bold">「移動する蓄電池」としての価値付加</p>
-                        <p class="text-sm mt-1">車両をOEMのエネルギーマネジメントシステムとセットで提供し、移動手段とエネルギー資産の「デュアルパーパス資産」として再定義します。</p>
+                    <h3 class="text-xl font-semibold text-blue-700 mb-4">価値提案：モビリティからエネルギーレジリエンスへ</h3>
+                    <p class="mb-4 text-gray-700">中古EVの再販課題を事業機会へ転換する。ターゲットは、環境目標とBCP対策に意欲的な自治体や法人である。</p>
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
+                        <p class="font-bold text-blue-800">「移動する蓄電池」としての価値付加</p>
+                        <p class="text-sm mt-1 text-blue-700">車両をOEMのエネルギーマネジメントシステムとセットで提供し、移動手段とエネルギー資産の「デュアルパーパス資産」として再定義する。</p>
                     </div>
                      <ul class="list-disc list-inside space-y-2 mt-4 text-gray-700">
                         <li>V2H/V2Gによるエネルギーコスト削減</li>
                         <li>災害時の非常用電源としてのBCP対策強化</li>
-                        <li>総所有コスト（TCO）の概念を変革</li>
+                        <li>総所有コスト（TCO）の概念の変革</li>
                     </ul>
                 </div>
                 <div class="flex items-center justify-center">
                     <div class="relative">
-                        <img src="https://placehold.co/400x300/e0f2fe/0ea5e9?text=EV" alt="EVのイラスト" class="rounded-lg shadow-md">
+                        <img src="https://placehold.co/400x300/e0f2fe/1d4ed8?text=EV" alt="EVのイラスト" class="rounded-lg shadow-md">
                         <div class="absolute -bottom-4 -right-4 bg-white p-3 rounded-lg shadow-xl flex items-center">
-                           <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10A1 1 0 0111.3 1.046zM12 4.588L7.514 11H11v3.412L15.486 9H12V4.588z" clip-rule="evenodd" /></svg>
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10A1 1 0 0111.3 1.046zM12 4.588L7.514 11H11v3.412L15.486 9H12V4.588z" clip-rule="evenodd" /></svg>
                            <span class="ml-2 font-bold text-gray-700">移動する蓄電池</span>
                         </div>
                     </div>
@@ -377,28 +233,24 @@
             </div>
         </section>
 
-        <!-- Slide 6: Biz Model 1 - Operation -->
-        <section class="slide">
-            <div class="slide-header">
-                <h2 class="text-2xl font-bold text-gray-700">Part II：運用モデル - 循環型パートナーシップ</h2>
+        <!-- Section 6: Biz Model 1 - Operation -->
+        <section class="section-card">
+            <h2 class="text-2xl font-bold text-gray-800 border-b-2 border-blue-200 pb-3 mb-6">Part II：運用モデル - 循環型パートナーシップ</h2>
+            <h3 class="text-xl font-semibold text-center mb-6 text-gray-700">資産とデータの循環フロー</h3>
+            <div class="flex flex-col md:flex-row justify-between items-center text-center space-y-4 md:space-y-0 md:space-x-2">
+                <div class="concept-box w-full md:w-1/4"><h4 class="font-bold">① 一次リース</h4><p class="text-sm mt-2">OEM &rarr; リース会社 &rarr; 法人顧客</p></div>
+                <div class="text-2xl font-bold text-blue-400 transform rotate-90 md:rotate-0">&rarr;</div>
+                <div class="concept-box w-full md:w-1/4"><h4 class="font-bold">② リースバック</h4><p class="text-sm mt-2">リース会社が車両を回収</p></div>
+                <div class="text-2xl font-bold text-blue-400 transform rotate-90 md:rotate-0">&rarr;</div>
+                <div class="concept-box-highlight w-full md:w-1/3"><h4 class="font-bold text-blue-800">③ 二次リース</h4><p class="text-sm mt-2">中古EV + V2H + EMSをパッケージ化し、自治体等へ提供</p></div>
+                <div class="text-2xl font-bold text-blue-400 transform rotate-90 md:rotate-0">&rarr;</div>
+                <div class="concept-box w-full md:w-1/4"><h4 class="font-bold">④ OEM買戻し</h4><p class="text-sm mt-2">OEMが使用済み車両を買い戻し、素材を確保</p></div>
             </div>
-            <div class="slide-content flex flex-col justify-around">
-                <h3 class="text-xl font-semibold text-center mb-4">資産とデータの循環フロー</h3>
-                <div class="flex justify-between items-center text-center">
-                    <div class="concept-box w-1/5"><h4 class="font-bold">① 一次リース</h4><p class="text-sm mt-2">OEM → リース会社 → 法人顧客</p></div>
-                    <div class="flow-arrow">&rarr;</div>
-                    <div class="concept-box w-1/5"><h4 class="font-bold">② リースバック</h4><p class="text-sm mt-2">リース会社が車両を回収</p></div>
-                    <div class="flow-arrow">&rarr;</div>
-                    <div class="concept-box concept-box-highlight w-1/4"><h4 class="font-bold">③ 二次リース</h4><p class="text-sm mt-2">中古EV + V2H + EMSをパッケージ化し、自治体等へ提供</p></div>
-                    <div class="flow-arrow">&rarr;</div>
-                    <div class="concept-box w-1/5"><h4 class="font-bold">④ OEM買戻し</h4><p class="text-sm mt-2">OEMが使用済み車両を買い戻し、素材を確保</p></div>
-                </div>
-                <div class="mt-8 p-4 bg-gray-100 rounded-lg flex items-center">
-                     <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-500 mr-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
-                    <div>
-                        <h4 class="font-bold text-gray-800">データフロー：バッテリーパスポートの役割</h4>
-                        <p class="text-sm text-gray-600">ライフサイクル全体を通じて、Ouranos/Catena-X上で管理される「バッテリーパスポート」がSOH（健全性）、充放電サイクル等の重要データを記録。二次リース時の価値評価や買戻し価格算定に不可欠な役割を担います。</p>
-                    </div>
+            <div class="mt-8 p-6 bg-gray-50 rounded-lg flex items-center">
+                 <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-blue-500 mr-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                <div>
+                    <h4 class="font-bold text-gray-800">データフロー：バッテリーパスポートの役割</h4>
+                    <p class="text-sm text-gray-600 mt-1">ライフサイクル全体を通じて、Ouranos/Catena-X上で管理される「バッテリーパスポート」がSOH（健全性）、充放電サイクル等の重要データを記録。二次リース時の価値評価や買戻し価格算定に不可欠な役割を担う。</p>
                 </div>
             </div>
             <div class="one-message">
@@ -406,13 +258,11 @@
             </div>
         </section>
 
-        <!-- Slide 7: Biz Model 1 - Finance -->
-        <section class="slide">
-            <div class="slide-header">
-                <h2 class="text-2xl font-bold text-gray-700">Part II：財務モデル - 価値の定量化</h2>
-            </div>
-            <div class="slide-content flex flex-col justify-center">
-                 <h3 class="text-xl font-semibold text-center mb-6">車両フリートの比較TCO分析（5年間の総所有コスト）</h3>
+        <!-- Section 7: Biz Model 1 - Finance -->
+        <section class="section-card">
+            <h2 class="text-2xl font-bold text-gray-800 border-b-2 border-blue-200 pb-3 mb-6">Part II：財務モデル - 価値の定量化</h2>
+            <h3 class="text-xl font-semibold text-center mb-6 text-gray-700">車両フリートの比較TCO分析（5年間の総所有コスト）</h3>
+            <div class="overflow-x-auto">
                  <table class="w-full text-left border-collapse">
                     <thead>
                         <tr class="bg-gray-100">
@@ -438,45 +288,43 @@
                             <td class="p-3 border-b border-gray-200 text-right">0円</td>
                             <td class="p-3 border-b border-gray-200 text-right text-gray-700 font-semibold">4,100,000円</td>
                         </tr>
-                         <tr class="bg-green-100 font-bold">
-                            <td class="p-3 border-b border-green-300 text-green-800">提案モデル：中古EVスマートフリート</td>
-                            <td class="p-3 border-b border-green-300 text-right">360,000円</td>
-                            <td class="p-3 border-b border-green-300 text-right">40,000円</td>
-                            <td class="p-3 border-b border-green-300 text-right text-green-600">-80,000円</td>
-                            <td class="p-3 border-b border-green-300 text-right text-green-800 text-lg">2,190,000円</td>
+                         <tr class="bg-blue-100 font-bold">
+                            <td class="p-3 border-b border-blue-200 text-blue-800">提案モデル：中古EVスマートフリート</td>
+                            <td class="p-3 border-b border-blue-200 text-right text-blue-800">360,000円</td>
+                            <td class="p-3 border-b border-blue-200 text-right text-blue-800">40,000円</td>
+                            <td class="p-3 border-b border-blue-200 text-right text-blue-600">-80,000円</td>
+                            <td class="p-3 border-b border-blue-200 text-right text-blue-800 text-lg">2,190,000円</td>
                         </tr>
                     </tbody>
                  </table>
-                 <p class="text-xs text-gray-500 mt-2 text-right">※初期費用・メンテナンス費用等を含むTCO概算値。数値は例示。</p>
-                 <p class="mt-6 text-center text-gray-700">V2H/V2Gコンポーネントは「あれば良い」機能ではなく、二次リースを経済的に成立させるための中核的なドライバーです。<br>抽象的な便益を具体的な金銭的価値に変換することで、導入への合意形成を促進します。</p>
-            </div>
+             </div>
+             <p class="text-xs text-gray-500 mt-2 text-right">※初期費用・メンテナンス費用等を含むTCO概算値。数値は例示である。</p>
+             <p class="mt-6 text-center text-gray-700">V2H/V2Gコンポーネントは「あれば良い」機能ではなく、二次リースを経済的に成立させるための中核的なドライバーである。抽象的な便益を具体的な金銭的価値に変換することで、導入への合意形成を促進する。</p>
             <div class="one-message">
                 V2H/V2Gの経済的便益により、提案モデルは圧倒的なTCO優位性を実現する。
             </div>
         </section>
 
-        <!-- Slide 8: Biz Model 2 - Overview -->
-        <section class="slide">
-            <div class="slide-header">
-                <h2 class="text-2xl font-bold text-gray-700">Part III ビジネスモデル2：クローズドループ・マテリアル</h2>
-            </div>
-            <div class="slide-content grid grid-cols-2 gap-8 items-center">
+        <!-- Section 8: Biz Model 2 - Overview -->
+        <section class="section-card">
+            <h2 class="text-2xl font-bold text-gray-800 border-b-2 border-blue-200 pb-3 mb-6">Part III ビジネスモデル2：クローズドループ・マテリアル</h2>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
                 <div>
-                     <h3 class="text-xl font-semibold text-yellow-700 mb-4">必須要件：規制遵守と安定供給の実現</h3>
-                     <p class="mb-4">高品質な再生材への需要はもはや任意ではなく、法的に義務付けられています。特にEUのELV規則案は、緊急かつ大規模な需要を生み出します。</p>
-                     <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded-r-lg">
-                        <p class="font-bold">EU ELV規則案（抜粋）</p>
-                         <ul class="list-disc list-inside text-sm mt-1">
+                     <h3 class="text-xl font-semibold text-blue-700 mb-4">必須要件：規制遵守と安定供給の実現</h3>
+                     <p class="mb-4 text-gray-700">高品質な再生材への需要はもはや任意ではなく、法的に義務付けられている。特にEUのELV規則案は、緊急かつ大規模な需要を生み出すものである。</p>
+                     <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
+                        <p class="font-bold text-blue-800">EU ELV規則案（抜粋）</p>
+                         <ul class="list-disc list-inside text-sm mt-1 text-blue-700">
                             <li>新車に最低25%の再生プラスチック含有を義務付け</li>
                             <li>うち1/4は使用済み自動車（ELV）由来であること</li>
                         </ul>
                     </div>
-                    <p class="mt-4">現在のリサイクルインフラではこの需要に対応不可能であり、高品質でトレーサブルな再生材の安定供給がOEMの死活問題となります。</p>
+                    <p class="mt-4 text-gray-700">現在のリサイクルインフラではこの需要に対応不可能であり、高品質でトレーサブルな再生材の安定供給がOEMの死活問題となる。</p>
                 </div>
                 <div class="flex items-center justify-center">
-                    <div class="p-6 bg-gray-100 rounded-full w-64 h-64 flex flex-col items-center justify-center text-center shadow-lg">
-                        <div class="text-6xl font-bold text-yellow-600">25%</div>
-                        <div class="text-lg font-semibold mt-2">再生プラスチック<br>利用義務</div>
+                    <div class="p-6 bg-gray-100 rounded-full w-64 h-64 flex flex-col items-center justify-center text-center shadow-lg border-4 border-blue-200">
+                        <div class="text-6xl font-bold gradient-text">25%</div>
+                        <div class="text-lg font-semibold mt-2 text-gray-700">再生プラスチック<br>利用義務</div>
                         <p class="text-sm text-gray-500 mt-2">(EU ELV規則案)</p>
                     </div>
                 </div>
@@ -486,119 +334,133 @@
             </div>
         </section>
         
-        <!-- Slide 9: Biz Model 2 - Operation -->
-        <section class="slide">
-            <div class="slide-header">
-                <h2 class="text-2xl font-bold text-gray-700">Part III：運用モデル - デジタルマーケットプレイス</h2>
-            </div>
-            <div class="slide-content flex flex-col justify-center">
-                <h3 class="text-xl font-semibold text-center mb-6">認証再生材のデジタルマーケットプレイス構築</h3>
-                <div class="w-full bg-gray-50 p-6 rounded-lg border">
-                    <div class="relative flex items-center justify-between">
-                        <!-- Actors -->
-                        <div class="w-1/5 text-center p-2"><div class="font-bold">解体事業者</div><p class="text-xs">データ取得</p></div>
-                        <div class="w-1/5 text-center p-2"><div class="font-bold">シュレッダー</div><p class="text-xs">選別</p></div>
-                        <div class="w-1/5 text-center p-2 bg-blue-100 rounded-lg"><div class="font-bold text-blue-800">リサイクラー</div><p class="text-xs text-blue-600">高品質化</p></div>
-                        <div class="w-1/5 text-center p-2"><div class="font-bold">OEM</div><p class="text-xs">購入</p></div>
-                    </div>
-                     <!-- Core Platform -->
-                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 h-20 bg-white border-2 border-blue-500 rounded-full flex items-center justify-center shadow-lg">
-                        <span class="font-bold text-blue-700 text-lg">再生材マーケットプレイス (Ouranos/Catena-X基盤)</span>
-                    </div>
-                    <!-- Flows -->
-                    <div class="absolute top-1/4 left-0 w-full flex justify-around">
-                        <div class="text-blue-500 text-sm font-semibold">↑ モノの流れ</div>
-                    </div>
-                    <div class="absolute bottom-1/4 left-0 w-full flex justify-around">
-                         <div class="text-green-500 text-sm font-semibold">↓ データ・インセンティブの流れ</div>
-                    </div>
+        <!-- Section 9: Biz Model 2 - Operation -->
+        <section class="section-card">
+            <h2 class="text-2xl font-bold text-gray-800 border-b-2 border-blue-200 pb-3 mb-6">Part III：運用モデル - デジタルマーケットプレイス</h2>
+            <h3 class="text-xl font-semibold text-center mb-8 text-gray-700">認証再生材のデジタルマーケットプレイス構築</h3>
+            <div class="space-y-4">
+                <!-- Actors -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                    <div class="concept-box"><div class="font-bold">解体事業者</div><p class="text-xs mt-1">データ取得</p></div>
+                    <div class="concept-box"><div class="font-bold">シュレッダー</div><p class="text-xs mt-1">選別</p></div>
+                    <div class="concept-box-highlight"><div class="font-bold text-blue-800">リサイクラー</div><p class="text-xs text-blue-600 mt-1">高品質化</p></div>
+                    <div class="concept-box"><div class="font-bold">OEM</div><p class="text-xs mt-1">購入</p></div>
                 </div>
-                 <div class="grid grid-cols-2 gap-6 mt-8">
-                    <div class="p-4 bg-gray-100 rounded-lg">
-                        <h4 class="font-bold text-gray-800">通貨：デジタルマテリアルパスポート</h4>
-                        <p class="text-sm text-gray-600 mt-1">素材組成、リサイクル工程、品質、CFP等を追跡・記録。品質の信頼性を担保します。</p>
-                    </div>
-                     <div class="p-4 bg-gray-100 rounded-lg">
-                        <h4 class="font-bold text-gray-800">潤滑油：J-クレジット</h4>
-                        <p class="text-sm text-gray-600 mt-1">高品質な選別を行う上流事業者に対し、GHG削減量をクレジットとして付与。経済的インセンティブを提供し、協力を促します。</p>
-                    </div>
+                <!-- Platform -->
+                <div class="flex justify-center items-center text-2xl font-bold text-blue-400 space-x-4">
+                    <span>↑</span><span class="text-sm text-gray-500">モノの流れ</span>
+                    <span>↓</span><span class="text-sm text-gray-500">データ・インセンティブの流れ</span>
+                </div>
+                <div class="p-6 bg-white border-2 border-blue-500 rounded-lg text-center shadow-lg">
+                    <h4 class="font-bold text-blue-700 text-lg">再生材マーケットプレイス</h4>
+                    <p class="text-sm text-gray-600">(Ouranos/Catena-X基盤)</p>
+                </div>
+             </div>
+             <div class="grid md:grid-cols-2 gap-6 mt-8">
+                <div class="p-4 bg-gray-50 rounded-lg border">
+                    <h4 class="font-bold text-gray-800">通貨：デジタルマテリアルパスポート</h4>
+                    <p class="text-sm text-gray-600 mt-1">素材組成、リサイクル工程、品質、CFP等を追跡・記録し、品質の信頼性を担保する。</p>
+                </div>
+                 <div class="p-4 bg-gray-50 rounded-lg border">
+                    <h4 class="font-bold text-gray-800">潤滑油：J-クレジット</h4>
+                    <p class="text-sm text-gray-600 mt-1">高品質な選別を行う上流事業者に対し、GHG削減量をクレジットとして付与。経済的インセンティブを提供し、協力を促す。</p>
                 </div>
             </div>
             <div class="one-message">
-                デジタルパスポートが品質を保証し、J-クレジットが上流の協力を促す、信頼性の高い再生材市場を構築する。
+                デジタルパスポートが品質を保証し、J-クレジットが協力を促す、信頼性の高い再生材市場を構築する。
             </div>
         </section>
 
-        <!-- Slide 10: Biz Model 2 - Technology -->
-        <section class="slide">
-            <div class="slide-header">
-                <h2 class="text-2xl font-bold text-gray-700">Part III：技術戦略 - ケミカルリサイクル</h2>
-            </div>
-            <div class="slide-content flex flex-col justify-center">
-                 <h3 class="text-xl font-semibold text-center mb-6">主要自動車素材のリサイクル技術マトリクス</h3>
+        <!-- Section 10: Biz Model 2 - Technology (Corrected) -->
+        <section class="section-card">
+            <h2 class="text-2xl font-bold text-gray-800 border-b-2 border-blue-200 pb-3 mb-6">Part III：技術戦略 - ケミカルリサイクル</h2>
+            <h3 class="text-xl font-semibold text-center mb-6 text-gray-700">主要自動車素材のリサイクル技術マトリクス</h3>
+             <div class="overflow-x-auto">
                  <table class="w-full text-left border-collapse">
-                    <thead>
-                        <tr class="bg-gray-100">
-                            <th class="p-3 border-b-2 border-gray-300 font-bold">素材</th>
-                            <th class="p-3 border-b-2 border-gray-300 font-bold">リサイクルプロセス</th>
-                            <th class="p-3 border-b-2 border-gray-300 font-bold">アウトプット品質</th>
-                            <th class="p-3 border-b-2 border-gray-300 font-bold">相対コスト</th>
+                    <thead class="bg-gray-100">
+                        <tr>
+                            <th class="p-2 border-b-2 border-gray-300 font-bold">素材</th>
+                            <th class="p-2 border-b-2 border-gray-300 font-bold">リサイクルプロセス</th>
+                            <th class="p-2 border-b-2 border-gray-300 font-bold">アウトプット品質/性能</th>
+                            <th class="p-2 border-b-2 border-gray-300 font-bold">GHG削減ポテンシャル</th>
+                            <th class="p-2 border-b-2 border-gray-300 font-bold">相対コスト</th>
+                            <th class="p-2 border-b-2 border-gray-300 font-bold">技術成熟度(TRL)</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr class="hover:bg-gray-50">
-                            <td class="p-3 border-b border-gray-200 font-semibold">ポリプロピレン (PP)</td>
-                            <td class="p-3 border-b border-gray-200">マテリアルリサイクル</td>
-                            <td class="p-3 border-b border-gray-200"><span class="bg-yellow-200 text-yellow-800 px-2 py-1 rounded-full text-sm">中～高</span></td>
-                            <td class="p-3 border-b border-gray-200"><span class="bg-green-200 text-green-800 px-2 py-1 rounded-full text-sm">低</span></td>
+                            <td class="p-2 border-b border-gray-200 font-semibold">ポリプロピレン (PP)</td>
+                            <td class="p-2 border-b border-gray-200">マテリアルリサイクル</td>
+                            <td class="p-2 border-b border-gray-200">中～高 (用途限定)</td>
+                            <td class="p-2 border-b border-gray-200">中</td>
+                            <td class="p-2 border-b border-gray-200">低</td>
+                            <td class="p-2 border-b border-gray-200 text-center">9</td>
                         </tr>
                         <tr class="hover:bg-gray-50">
-                            <td class="p-3 border-b border-gray-200 font-semibold">ナイロン6 (PA6)</td>
-                            <td class="p-3 border-b border-gray-200">マテリアルリサイクル</td>
-                            <td class="p-3 border-b border-gray-200"><span class="bg-red-200 text-red-800 px-2 py-1 rounded-full text-sm">低（ダウングレード）</span></td>
-                            <td class="p-3 border-b border-gray-200"><span class="bg-yellow-200 text-yellow-800 px-2 py-1 rounded-full text-sm">中</span></td>
+                            <td class="p-2 border-b border-gray-200 font-semibold">ナイロン6 (PA6)</td>
+                            <td class="p-2 border-b border-gray-200">マテリアルリサイクル</td>
+                            <td class="p-2 border-b border-gray-200">低～中 (ダウングレード)</td>
+                            <td class="p-2 border-b border-gray-200">中</td>
+                            <td class="p-2 border-b border-gray-200">中</td>
+                            <td class="p-2 border-b border-gray-200 text-center">8</td>
                         </tr>
-                         <tr class="bg-blue-100 hover:bg-blue-200">
-                            <td class="p-3 border-b border-blue-200 font-bold text-blue-800">ナイロン6 (PA6)</td>
-                            <td class="p-3 border-b border-blue-200 font-bold text-blue-800">ケミカルリサイクル</td>
-                            <td class="p-3 border-b border-blue-200 font-bold"><span class="bg-blue-300 text-blue-900 px-2 py-1 rounded-full text-sm">高（バージン材同等）</span></td>
-                            <td class="p-3 border-b border-blue-200 font-bold"><span class="bg-red-200 text-red-800 px-2 py-1 rounded-full text-sm">高</span></td>
+                         <tr class="bg-blue-50 hover:bg-blue-100">
+                            <td class="p-2 border-b border-blue-200 font-bold text-blue-800">ナイロン6 (PA6)</td>
+                            <td class="p-2 border-b border-blue-200 font-bold text-blue-800">ケミカルリサイクル</td>
+                            <td class="p-2 border-b border-blue-200 font-bold text-blue-800">高 (バージン材同等)</td>
+                            <td class="p-2 border-b border-blue-200 font-bold text-blue-800">高</td>
+                            <td class="p-2 border-b border-blue-200 font-bold text-blue-800">高</td>
+                            <td class="p-2 border-b border-blue-200 font-bold text-blue-800 text-center">6-7</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-2 border-b border-gray-200 font-semibold">炭素繊維複合材 (CFRP)</td>
+                            <td class="p-2 border-b border-gray-200">熱分解/ソルボリシス</td>
+                            <td class="p-2 border-b border-gray-200">中 (繊維長低下)</td>
+                            <td class="p-2 border-b border-gray-200">高</td>
+                            <td class="p-2 border-b border-gray-200">非常に高い</td>
+                            <td class="p-2 border-b border-gray-200 text-center">5-6</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-2 border-b border-gray-200 font-semibold">PET</td>
+                            <td class="p-2 border-b border-gray-200">ケミカルリサイクル</td>
+                            <td class="p-2 border-b border-gray-200">高 (バージン材同等)</td>
+                            <td class="p-2 border-b border-gray-200">高</td>
+                            <td class="p-2 border-b border-gray-200">中～高</td>
+                            <td class="p-2 border-b border-gray-200 text-center">8</td>
                         </tr>
                     </tbody>
                  </table>
-                 <p class="mt-6 text-center text-gray-700">高性能な自動車用プラスチックには、品質低下を招くマテリアルリサイクルは不向きです。<br>
-                 <strong>ケミカルリサイクル</strong>は、ポリマーをモノマーにまで分解し、バージン材同等の品質を再生する重要な実現技術です。</p>
-            </div>
+             </div>
+             <p class="mt-6 text-center text-gray-700 bg-gray-50 p-4 rounded-lg">高性能な自動車用プラスチックには、品質低下を招くマテリアルリサイクルは不向きである。<br>
+             <strong>ケミカルリサイクル</strong>は、ポリマーをモノマーにまで分解し、バージン材同等の品質を再生する重要な実現技術となる。</p>
             <div class="one-message">
                 ケミカルリサイクルは、バージン材同等の品質を要求される高性能部品の循環を可能にする鍵である。
             </div>
         </section>
 
-        <!-- Slide 11: Biz Model 3 - Overview -->
-        <section class="slide">
-            <div class="slide-header">
-                <h2 class="text-2xl font-bold text-gray-700">Part IV ビジネスモデル3：金融イノベーション</h2>
-            </div>
-             <div class="slide-content grid grid-cols-2 gap-8 items-center">
+        <!-- Section 11: Biz Model 3 - Overview -->
+        <section class="section-card">
+            <h2 class="text-2xl font-bold text-gray-800 border-b-2 border-blue-200 pb-3 mb-6">Part IV ビジネスモデル3：金融イノベーション</h2>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
                 <div>
                      <h3 class="text-xl font-semibold text-blue-700 mb-4">中核的課題：EV所有の民主化</h3>
-                     <p class="mb-4">補助金があっても、EVの高額な初期費用は依然として最大の普及障壁です。この課題を金融イノベーションで解決します。</p>
+                     <p class="mb-4 text-gray-700">補助金があっても、EVの高額な初期費用は依然として最大の普及障壁である。この課題を金融イノベーションで解決する。</p>
                      <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
-                        <p class="font-bold">Battery as a Service (BaaS)モデルの導入</p>
-                        <p class="text-sm mt-1">車両で最も高価な部品であるバッテリーを本体から分離。顧客は車体のみを購入し、バッテリーは月額サービスとして利用します。</p>
+                        <p class="font-bold text-blue-800">Battery as a Service (BaaS)モデルの導入</p>
+                        <p class="text-sm mt-1 text-blue-700">車両で最も高価な部品であるバッテリーを本体から分離。顧客は車体のみを購入し、バッテリーは月額サービスとして利用する。</p>
                     </div>
-                    <p class="mt-4">中国NIOの成功事例を参考に、コンソーシアム形式で日本市場へ適応させます。</p>
+                    <p class="mt-4 text-gray-700">中国NIOの成功事例を参考に、コンソーシアム形式で日本市場へ適応させる。</p>
                 </div>
                 <div class="flex flex-col items-center justify-center">
                     <div class="w-full max-w-sm">
                         <div class="font-semibold text-center mb-2">EV車両価格の構成</div>
-                        <div class="flex w-full h-12 rounded-full overflow-hidden border">
-                            <div class="bg-blue-500 flex items-center justify-center text-white" style="width: 70%;">車体 (70%)</div>
-                            <div class="bg-yellow-400 flex items-center justify-center text-black" style="width: 30%;">バッテリー (30%)</div>
+                        <div class="flex w-full h-12 rounded-lg overflow-hidden border bg-gray-200">
+                            <div class="bg-gray-500 flex items-center justify-center text-white" style="width: 70%;">車体 (70%)</div>
+                            <div class="bg-gradient-to-r from-blue-500 to-blue-400 flex items-center justify-center text-white font-bold" style="width: 30%;">バッテリー (30%)</div>
                         </div>
-                        <div class="text-center my-4 text-2xl">&darr;</div>
+                        <div class="text-center my-4 text-2xl text-blue-500">&darr;</div>
                          <div class="font-semibold text-center mb-2">BaaS適用後の初期購入価格</div>
-                        <div class="flex w-full h-12 rounded-full overflow-hidden border bg-blue-500">
+                        <div class="flex w-full h-12 rounded-lg overflow-hidden border bg-gray-500">
                              <div class="flex items-center justify-center text-white w-full">車体のみ (大幅な低価格化)</div>
                         </div>
                     </div>
@@ -609,122 +471,125 @@
             </div>
         </section>
 
-        <!-- Slide 12: Biz Model 3 - Securitization -->
-        <section class="slide">
-            <div class="slide-header">
-                <h2 class="text-2xl font-bold text-gray-700">Part IV：次なるフロンティア - バッテリー資産の証券化</h2>
-            </div>
-            <div class="slide-content flex flex-col justify-center">
-                 <h3 class="text-xl font-semibold text-center mb-4">EVバッテリー証券化スキーム（概念フロー）</h3>
-                 <div class="w-full bg-gray-50 p-6 rounded-lg border text-sm">
-                    <div class="grid grid-cols-3 gap-4">
-                        <!-- Left: Users/OEM -->
-                        <div class="space-y-4">
-                            <div class="concept-box p-3"><h4 class="font-bold">EVユーザー</h4><p>車体を購入、BaaS利用料を支払う</p></div>
-                            <div class="text-center text-xl">&darr;</div>
-                            <div class="concept-box p-3"><h4 class="font-bold">OEM / リース会社</h4><p>車両を販売/リース</p></div>
-                        </div>
-                        <!-- Center: SPV -->
-                        <div class="space-y-2 flex flex-col items-center justify-center">
-                            <div class="text-center text-xl">&rarr;</div>
-                            <div class="concept-box concept-box-highlight p-4 w-full">
-                                <h4 class="font-bold">バッテリー資産会社 (オリジネーター)</h4>
-                                <p class="text-xs">バッテリーをプール化</p>
-                                <div class="text-center text-xl my-1">&darr;<span class="text-xs font-semibold"> 真正売却</span></div>
-                                <h4 class="font-bold">特別目的会社 (SPC)</h4>
-                                 <p class="text-xs">資産を裏付けにABS発行</p>
-                            </div>
-                            <div class="text-center text-xl">&larr;</div>
-                        </div>
-                        <!-- Right: Investors -->
-                        <div class="space-y-4 flex flex-col justify-center">
-                           <div class="concept-box p-3"><h4 class="font-bold">投資家 (年金基金等)</h4><p>資産担保証券(ABS)を購入</p></div>
+        <!-- Section 12: Biz Model 3 - Securitization -->
+        <section class="section-card">
+            <h2 class="text-2xl font-bold text-gray-800 border-b-2 border-blue-200 pb-3 mb-6">Part IV：次なるフロンティア - バッテリー資産の証券化</h2>
+            <h3 class="text-xl font-semibold text-center mb-8 text-gray-700">EVバッテリー証券化スキーム（概念フロー）</h3>
+            <div class="w-full bg-gray-50 p-6 rounded-lg border text-sm">
+                <div class="grid md:grid-cols-3 gap-6 items-center">
+                    <!-- Left: Users/OEM -->
+                    <div class="space-y-4 text-center">
+                        <div class="concept-box p-3"><h4 class="font-bold">EVユーザー</h4><p>車体購入 & BaaS利用料支払</p></div>
+                        <div class="text-blue-400 text-xl">&darr;</div>
+                        <div class="concept-box p-3"><h4 class="font-bold">OEM / リース会社</h4><p>車両販売/リース</p></div>
+                    </div>
+                    <!-- Center: SPV -->
+                    <div class="space-y-2 text-center">
+                        <div class="concept-box-highlight p-4 w-full">
+                            <h4 class="font-bold text-blue-800">バッテリー資産会社</h4>
+                            <p class="text-xs">バッテリーをプール化</p>
+                            <div class="text-blue-400 text-xl my-1">&darr;<span class="text-xs font-semibold"> 真正売却</span></div>
+                            <h4 class="font-bold text-blue-800">特別目的会社 (SPC)</h4>
+                             <p class="text-xs">資産を裏付けにABS発行</p>
                         </div>
                     </div>
-                     <!-- Flow Labels -->
-                     <div class="mt-4 grid grid-cols-2 gap-4 text-xs font-semibold">
-                        <div class="text-center text-blue-600">資金の流れ &rarr;</div>
-                        <div class="text-center text-green-600">&larr; 資産・キャッシュフローの流れ</div>
-                     </div>
+                    <!-- Right: Investors -->
+                    <div class="space-y-4 text-center">
+                       <div class="concept-box p-3"><h4 class="font-bold">投資家</h4><p>資産担保証券(ABS)を購入</p></div>
+                    </div>
+                </div>
+                 <!-- Flow Labels -->
+                 <div class="mt-4 grid grid-cols-2 gap-4 text-xs font-semibold">
+                    <div class="text-center text-blue-600">&larr; 資金の流れ</div>
+                    <div class="text-center text-gray-600">資産・キャッシュフローの流れ &rarr;</div>
                  </div>
             </div>
+             <p class="mt-6 text-sm text-center text-gray-600">証券化により、バッテリー資産会社はリース料収入とバッテリー残存価値を即座に現金化し、大規模なバッテリー在庫構築に必要な巨額の資本を調達する。</p>
             <div class="one-message">
                 バッテリー資産の証券化は、大規模な資金調達を可能にし、EVの価格競争力を抜本的に向上させる。
             </div>
         </section>
         
-        <!-- Slide 13: Biz Model 3 - Risk Mitigation -->
-        <section class="slide">
-             <div class="slide-header">
-                <h2 class="text-2xl font-bold text-gray-700">Part IV：証券化のリスク低減</h2>
-            </div>
-            <div class="slide-content flex flex-col justify-center">
-                 <h3 class="text-xl font-semibold text-center mb-6">エコシステム連携による価値担保</h3>
-                 <div class="flex items-center justify-center">
-                    <div class="w-2/3 relative">
-                        <div class="bg-blue-600 text-white p-6 rounded-lg shadow-lg text-center z-10 relative">
-                            <h4 class="text-xl font-bold">バッテリー資産担保証券 (ABS)</h4>
-                            <p>投資家への安定したリターン</p>
-                        </div>
-                        <div class="absolute top-1/2 -left-16 text-4xl text-gray-400 z-0">&uarr;</div>
-                        <div class="absolute top-1/2 -right-16 text-4xl text-gray-400 z-0">&uarr;</div>
-                        <div class="absolute -bottom-16 left-1/2 -translate-x-1/2 text-4xl text-gray-400 z-0">&uarr;</div>
-
-                        <div class="mt-20 grid grid-cols-3 gap-4">
-                            <div class="concept-box border-green-400 bg-green-50">
-                                <h5 class="font-bold text-green-800">価値 ①：一次リース</h5>
-                                <p class="text-sm">BaaS契約からの安定したキャッシュフロー</p>
-                            </div>
-                            <div class="concept-box border-green-400 bg-green-50">
-                                <h5 class="font-bold text-green-800">価値 ②：二次リース</h5>
-                                <p class="text-sm">モデル1が創出する中古バッテリー市場からの追加収益</p>
-                            </div>
-                             <div class="concept-box border-yellow-400 bg-yellow-50">
-                                <h5 class="font-bold text-yellow-800">価値 ③：素材回収</h5>
-                                <p class="text-sm">モデル2が確立する最終的な素材価値（フロアバリュー）</p>
-                            </div>
-                        </div>
+        <!-- Section 13: Biz Model 3 - Risk Mitigation -->
+        <section class="section-card">
+            <h2 class="text-2xl font-bold text-gray-800 border-b-2 border-blue-200 pb-3 mb-6">Part IV：証券化のリスク低減</h2>
+            <h3 class="text-xl font-semibold text-center mb-8 text-gray-700">エコシステム連携による価値担保</h3>
+            <div class="space-y-6">
+                <div class="bg-gradient-to-r from-blue-600 to-blue-500 text-white p-6 rounded-lg shadow-lg text-center">
+                    <h4 class="text-xl font-bold">バッテリー資産担保証券 (ABS)</h4>
+                    <p>投資家への安定したリターン</p>
+                </div>
+                <div class="flex justify-center text-4xl text-blue-300">
+                    <span>&uarr;</span>
+                </div>
+                <p class="text-center font-semibold text-gray-600">以下の3段階の価値によって裏付けられる</p>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="concept-box border-blue-300 bg-blue-50">
+                        <h5 class="font-bold text-blue-800">価値 ①：一次リース</h5>
+                        <p class="text-sm mt-1">BaaS契約からの安定したキャッシュフロー</p>
+                    </div>
+                    <div class="concept-box border-blue-300 bg-blue-50">
+                        <h5 class="font-bold text-blue-800">価値 ②：二次リース</h5>
+                        <p class="text-sm mt-1">モデル1が創出する中古バッテリー市場からの追加収益</p>
+                    </div>
+                     <div class="concept-box border-blue-300 bg-blue-50">
+                        <h5 class="font-bold text-blue-800">価値 ③：素材回収</h5>
+                        <p class="text-sm mt-1">モデル2が確立する最終的な素材価値（フロアバリュー）</p>
                     </div>
                 </div>
-                 <p class="mt-8 text-center text-gray-700 p-3 bg-gray-100 rounded-lg">モデル1が提供する<strong>リアルタイムSOHデータ</strong>は資産価値評価の精度を高め、投資家の最大のリスクである「価値の不確実性」を払拭します。</p>
+                 <p class="mt-6 text-center text-gray-700 p-4 bg-gray-50 rounded-lg border">モデル1が提供する<strong>リアルタイムSOHデータ</strong>は資産価値評価の精度を高め、投資家の最大のリスクである「価値の不確実性」を払拭する。</p>
             </div>
-             <div class="one-message">
+            <div class="one-message">
                 他のビジネスモデルが創出する「データ」と「リアルな価値」が、金融商品の信頼性を担保する。
             </div>
         </section>
 
-        <!-- Slide 14: Flywheel -->
-        <section class="slide">
-            <div class="slide-header">
-                <h2 class="text-2xl font-bold text-gray-700">Part V 統合：戦略的フライホイール</h2>
-            </div>
-            <div class="slide-content flex flex-col justify-center">
-                 <h3 class="text-xl font-semibold text-center mb-2">3つのモデルが創り出す自己強化型の好循環</h3>
-                 <div class="flywheel-container">
-                    <div class="flywheel-core">サーキュラー・<br>フライホイール</div>
-                    
-                    <!-- Segments -->
-                    <div class="flywheel-segment" style="transform: translate(-50%, -50%) translate(0, -150px);">
-                        <div class="font-bold text-blue-700">金融 (モデル3)</div>
-                        <p class="text-xs mt-1">BaaSと証券化でEV普及を<strong class="text-blue-700">加速</strong></p>
-                    </div>
-                     <div class="flywheel-segment" style="transform: translate(-50%, -50%) translate(150px, 0) rotate(90deg);">
-                        <div class="font-bold text-green-700">リース (モデル1)</div>
-                        <p class="text-xs mt-1">フリートが<strong class="text-green-700">データと中古バッテリー</strong>を創出</p>
-                    </div>
-                    <div class="flywheel-segment" style="transform: translate(-50%, -50%) translate(0, 150px) rotate(180deg);">
-                         <div class="font-bold text-yellow-700">素材 (モデル2)</div>
-                        <p class="text-xs mt-1">中古バッテリーを<strong class="text-yellow-700">高価値な再生材</strong>へ</p>
-                    </div>
-                     <div class="flywheel-segment" style="transform: translate(-50%, -50%) translate(-150px, 0) rotate(270deg);">
-                        <div class="font-bold text-gray-700">リスク低減</div>
-                        <p class="text-xs mt-1">データと素材価値が金融リスクを低減し、<strong class="text-gray-700">再加速</strong></p>
-                    </div>
-                    <!-- Arrows -->
-                    <div class="flywheel-arrow" style="top: 20px; right: 20px; transform: rotate(45deg);">&rarr;</div>
-                    <div class="flywheel-arrow" style="bottom: 20px; right: 20px; transform: rotate(135deg);">&rarr;</div>
-                    <div class="flywheel-arrow" style="bottom: 20px; left: 20px; transform: rotate(225deg);">&rarr;</div>
-                    <div class="flywheel-arrow" style="top: 20px; left: 20px; transform: rotate(315deg);">&rarr;</div>
+        <!-- Section 14: Flywheel (Corrected) -->
+        <section class="section-card">
+            <h2 class="text-2xl font-bold text-gray-800 border-b-2 border-blue-200 pb-3 mb-6">Part V 統合：戦略的フライホイール</h2>
+            <h3 class="text-xl font-semibold text-center mb-8 text-gray-700">3つのモデルが創り出す自己強化型の好循環</h3>
+            <div class="relative w-full max-w-md mx-auto aspect-square">
+                 <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="w-2/5 h-2/5 bg-gradient-to-br from-blue-600 to-blue-400 rounded-full flex items-center justify-center text-white font-bold text-center p-4 shadow-xl z-10">サーキュラー・<br>フライホイール</div>
+                </div>
+
+                <!-- Segments -->
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 concept-box-highlight w-40 text-center p-2">
+                    <h4 class="font-bold text-blue-800 text-sm">金融 (モデル3)</h4>
+                    <p class="text-xs mt-1">EV普及を<strong>加速</strong></p>
+                </div>
+                <div class="absolute right-0 top-1/2 -translate-y-1/2 concept-box-highlight w-40 text-center p-2">
+                    <h4 class="font-bold text-blue-800 text-sm">リース (モデル1)</h4>
+                    <p class="text-xs mt-1"><strong>データと中古Battery</strong>を創出</p>
+                </div>
+                <div class="absolute bottom-0 left-1/2 -translate-x-1/2 concept-box-highlight w-40 text-center p-2">
+                     <h4 class="font-bold text-blue-800 text-sm">素材 (モデル2)</h4>
+                    <p class="text-xs mt-1"><strong>高価値な再生材</strong>へ転換</p>
+                </div>
+                <div class="absolute left-0 top-1/2 -translate-y-1/2 concept-box-highlight w-40 text-center p-2">
+                    <h4 class="font-bold text-blue-800 text-sm">リスク低減</h4>
+                    <p class="text-xs mt-1">金融リスクを低減し、<strong>再加速</strong></p>
+                </div>
+                
+                <!-- Arrows -->
+                <div class="absolute w-full h-full">
+                    <svg viewBox="0 0 200 200" class="w-full h-full">
+                        <!-- Arrow 1: 金融 -> リース -->
+                        <path d="M 100,45 A 55 55 0 0 1 155,100" fill="none" stroke="#93c5fd" stroke-width="2" stroke-dasharray="4,4"/>
+                        <path d="M 160 97 L 155 105 L 150 97 Z" fill="#93c5fd" />
+                        
+                        <!-- Arrow 2: リース -> 素材 -->
+                        <path d="M 155,100 A 55 55 0 0 1 100,155" fill="none" stroke="#93c5fd" stroke-width="2" stroke-dasharray="4,4"/>
+                        <path d="M 103 160 L 97 160 L 100 155 Z" fill="#93c5fd" transform="rotate(180 100 157.5)"/>
+
+                        <!-- Arrow 3: 素材 -> リスク低減 -->
+                        <path d="M 100,155 A 55 55 0 0 1 45,100" fill="none" stroke="#93c5fd" stroke-width="2" stroke-dasharray="4,4"/>
+                        <path d="M 40 103 L 45 95 L 50 103 Z" fill="#93c5fd"/>
+                        
+                        <!-- Arrow 4: リスク低減 -> 金融 -->
+                        <path d="M 45,100 A 55 55 0 0 1 100,45" fill="none" stroke="#93c5fd" stroke-width="2" stroke-dasharray="4,4"/>
+                        <path d="M 97 40 L 103 40 L 100 45 Z" fill="#93c5fd" transform="rotate(180 100 42.5)"/>
+                    </svg>
                 </div>
             </div>
             <div class="one-message">
@@ -732,50 +597,54 @@
             </div>
         </section>
 
-        <!-- Slide 15: Roadmap -->
-        <section class="slide">
-            <div class="slide-header">
-                <h2 class="text-2xl font-bold text-gray-700">Part V：実行のための戦略的ロードマップ</h2>
-            </div>
-            <div class="slide-content flex flex-col justify-center">
-                <div class="w-full">
-                    <!-- Timeline Header -->
-                    <div class="flex">
-                        <div class="w-1/3 p-4 text-center font-bold text-lg">フェーズ1 (0-18ヶ月)</div>
-                        <div class="w-1/3 p-4 text-center font-bold text-lg">フェーズ2 (18-36ヶ月)</div>
-                        <div class="w-1/3 p-4 text-center font-bold text-lg">フェーズ3 (36ヶ月〜)</div>
+        <!-- Section 15: Roadmap -->
+        <section class="section-card">
+            <h2 class="text-2xl font-bold text-gray-800 border-b-2 border-blue-200 pb-3 mb-6">Part V：実行のための戦略的ロードマップ</h2>
+            <div class="w-full">
+                <!-- Timeline -->
+                <div class="flex flex-col md:flex-row justify-between">
+                    <div class="flex-1 text-center md:text-left mb-4 md:mb-0">
+                        <h4 class="font-bold text-lg text-blue-700">フェーズ1 (0-18ヶ月)</h4>
                     </div>
-                    <div class="relative w-full h-2 bg-gray-300 rounded-full">
-                        <div class="absolute h-2 bg-blue-500 rounded-full" style="width: 100%;"></div>
-                        <div class="absolute top-1/2 -translate-y-1/2 left-1/3 w-4 h-4 bg-blue-500 rounded-full border-2 border-white"></div>
-                        <div class="absolute top-1/2 -translate-y-1/2 left-2/3 w-4 h-4 bg-blue-500 rounded-full border-2 border-white"></div>
+                     <div class="flex-1 text-center md:text-left mb-4 md:mb-0">
+                        <h4 class="font-bold text-lg text-blue-700">フェーズ2 (18-36ヶ月)</h4>
                     </div>
-                    <!-- Timeline Content -->
-                    <div class="flex mt-4 text-sm">
-                        <div class="w-1/3 p-4 border-r">
-                            <h4 class="font-bold mb-2">基盤となるパイロットとパートナーシップ構築</h4>
-                            <ul class="list-disc list-inside space-y-2">
-                                <li>コンソーシアム結成</li>
-                                <li>モデル1のパイロット開始</li>
-                                <li>バッテリー/マテリアルパスポートの標準定義</li>
-                            </ul>
-                        </div>
-                        <div class="w-1/3 p-4 border-r">
-                            <h4 class="font-bold mb-2">規模拡大と金融ストラクチャリング</h4>
-                            <ul class="list-disc list-inside space-y-2">
-                                <li>スマートフリートプログラム拡大</li>
-                                <li>初のパイロット版ABS組成</li>
-                                <li>モデル2の素材回収プログラム開始</li>
-                             </ul>
-                        </div>
-                        <div class="w-1/3 p-4">
-                            <h4 class="font-bold mb-2">完全なエコシステム運用</h4>
-                            <ul class="list-disc list-inside space-y-2">
-                                <li>BaaS販売、二次リース、再生材フローの安定化</li>
-                                <li>バッテリーABSの定期的発行</li>
-                                <li>データ活用による継続的な最適化</li>
-                            </ul>
-                        </div>
+                     <div class="flex-1 text-center md:text-left">
+                        <h4 class="font-bold text-lg text-blue-700">フェーズ3 (36ヶ月〜)</h4>
+                    </div>
+                </div>
+                <div class="relative w-full h-2 bg-gray-200 rounded-full my-4">
+                    <div class="absolute h-2 bg-blue-400 rounded-full" style="width: 100%;"></div>
+                    <div class="absolute top-1/2 -translate-y-1/2 left-0 w-4 h-4 bg-blue-600 rounded-full border-2 border-white"></div>
+                    <div class="absolute top-1/2 -translate-y-1/2 left-1/3 w-4 h-4 bg-blue-600 rounded-full border-2 border-white"></div>
+                    <div class="absolute top-1/2 -translate-y-1/2 left-2/3 w-4 h-4 bg-blue-600 rounded-full border-2 border-white"></div>
+                     <div class="absolute top-1/2 -translate-y-1/2 right-0 w-4 h-4 bg-blue-600 rounded-full border-2 border-white"></div>
+                </div>
+                <!-- Timeline Content -->
+                <div class="flex flex-col md:flex-row mt-4 text-sm text-gray-700">
+                    <div class="w-full md:w-1/3 p-4">
+                        <h5 class="font-bold mb-2">基盤となるパイロットとパートナーシップ構築</h5>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>コンソーシアム結成</li>
+                            <li>モデル1のパイロット開始</li>
+                            <li>バッテリー/マテリアルパスポートの標準定義</li>
+                        </ul>
+                    </div>
+                    <div class="w-full md:w-1/3 p-4 md:border-l md:border-r">
+                        <h5 class="font-bold mb-2">規模拡大と金融ストラクチャリング</h5>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>スマートフリートプログラム拡大</li>
+                            <li>初のパイロット版ABS組成</li>
+                            <li>モデル2の素材回収プログラム開始</li>
+                         </ul>
+                    </div>
+                    <div class="w-full md:w-1/3 p-4">
+                        <h5 class="font-bold mb-2">完全なエコシステム運用</h5>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>BaaS販売、二次リース、再生材フローの安定化</li>
+                            <li>バッテリーABSの定期的発行</li>
+                            <li>データ活用による継続的な最適化</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -784,79 +653,88 @@
             </div>
         </section>
         
-        <!-- Slide 16: Conclusion -->
-        <section class="slide">
-            <div class="m-auto text-center">
-                <h1 class="text-5xl font-bold text-gray-800">結論</h1>
-                <p class="text-xl text-gray-700 mt-8 max-w-4xl mx-auto leading-relaxed">
-                    自動車産業の未来は、より多くの車を売ることにあるのではなく、その車の価値を<strong class="text-blue-600">ライフサイクル全体にわたって管理すること</strong>にあります。
-                    <br><br>
-                    本レポートで提案した3つの連携モデルは、金融が普及を促し、運用データが価値を可視化し、循環利用がその価値を担保するという、強力な因果関係で結ばれたエコシステムです。
-                </p>
-            </div>
-             <div class="one-message">
+        <!-- Section 16: Conclusion -->
+        <section class="section-card text-center">
+            <h2 class="text-3xl font-bold gradient-text mb-6">結論</h2>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
+                自動車産業の未来は、より多くの車を売ることにあるのではなく、その車の価値を<strong class="text-blue-600">ライフサイクル全体にわたって管理すること</strong>にある。
+                <br><br>
+                本レポートで提案した3つの連携モデルは、金融が普及を促し、運用データが価値を可視化し、循環利用がその価値を担保するという、強力な因果関係で結ばれたエコシステムである。
+            </p>
+            <div class="one-message">
                 サーキュラー・フライホイールを構築し主導することで、貴社はサステナビリティと収益性を両立させ、未来の自動車産業の覇者となる。
             </div>
         </section>
 
-        <!-- Navigation -->
-        <button id="prevBtn" class="nav-button" title="前のスライドへ">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
-        </button>
-        <button id="nextBtn" class="nav-button" title="次のスライドへ">
-             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-        </button>
-        
-        <!-- Page Number -->
-        <div id="page-counter" class="page-number"></div>
-    </div>
+        <!-- Section 17: References (New) -->
+        <section class="section-card">
+            <h2 class="text-2xl font-bold text-gray-800 border-b-2 border-blue-200 pb-3 mb-6">参考文献</h2>
+            <ol class="reference-list text-sm text-gray-600">
+                <li>プレス発表 ウラノス・エコシステムとCatena-X、データスペースの... <a href="https://www.ipa.go.jp/pressrelease/2024/press20250331.html" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>サーキュラーエコノミーの動向 とJAPIAの取組み - 日本自動車部品工業会 <a href="https://www.japia.or.jp/files/user/japia/work/kankyo/DL/2023/%E3%82%B5%E3%83%BC%E3%82%AD%E3%83%A5%E3%83%A9%E3%83%BC%E3%82%A8%E3%82%B3%E3%83%8E%E3%83%9F%E3%83%BC%E3%81%AE%E5%8B%95%E5%90%91%E3%81%A8JAPIA%E3%81%AE%E5%8F%96%E7%B5%84%E3%81%BF.pdf" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>自動車向け再生プラスチック市場構築 アクションプラン（案） 環境省 2025/3/17 版 <a href="https://www.env.go.jp/council/content/03recycle03/000299186.pdf" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>循環経済への移行による「新たな成長」の実現 <a href="https://www.zensanpairen.or.jp/sanpai_zenkoku/pdf/202311shiryo.pdf" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>環境省における資源循環に向けた取組 （再資源化事業等高度化法）について - 熊本県産業資源循環協会 <a href="https://kuma-sanpai.or.jp/wp-content/uploads/09d684a3070b2e9c1dd4355f50b3342f.pdf" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>自動車リサイクル制度をめぐる各種取組状況 - 経済産業省 <a href="https://www.meti.go.jp/shingikai/sankoshin/sangyo_gijutsu/resource_circulation/jidosha_wg/pdf/059_04_00.pdf" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>自動車向け再生プラスチック市場構築 アクションプラン【概要版】 - 環境省 <a href="https://www.env.go.jp/content/000302434.pdf" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>自動車向け再生プラスチック市場構築 アクションプラン 環境省 2025 年 3 月 <a href="https://www.env.go.jp/content/000302433.pdf" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>産業構造審議会産業技術環境分科会資源循環経済小委員会自動車リサイクルＷＧ <a href="https://www.meti.go.jp/shingikai/sankoshin/sangyo_gijutsu/resource_circulation/jidosha_wg/pdf/058_gijiroku.pdf" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>転換期を迎えた自動車産業の サーキュラーエコノミー <a href="https://files.microcms-assets.io/assets/fa7ebd3c9a484c6197223084f64eb8d7/7b4d337e069a402695af854059aee6f5/K2404_022_034.pdf" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>ゼロボード、欧州電池規則対応のためのクラウドサービス「Zeroboard for batteries」を開発 <a href="https://www.zeroboard.jp/news/2246" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>ウラノス・エコシステム・プロジェクト制度 （METI/経済産業省） <a href="https://www.meti.go.jp/policy/mono_info_service/digital_architecture/ouranos/ouranos_project.html" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>Ouranos Ecosystem（ウラノス・エコシステム） - 経済産業省 <a href="https://www.meti.go.jp/policy/mono_info_service/digital_architecture/ouranos.html" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>ウラノス・エコシステムの取組について <a href="https://data-society-alliance.org/wp-content/uploads/2024/02/20240131_FutureData_02_METI_Takano.pdf" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>経済産業省が取り組むウラノス・エコシステムとは？ - 新たな市場を... <a href="https://sellwell.jp/column/distribution/ouranos-ecosystem/" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>トヨタとCatena-Xのバッテリーデータ連携アライアンス：背景・経緯とサプライチェーンへの影響 <a href="https://note.com/iromegane_bot/n/naa7de3c16809" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>ウラノス・エコシステムにみるデータ連携・データスペースの新潮流 | DTFA Institute | FA Portal <a href="https://faportal.deloitte.jp/institute/report/articles/001160.html" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>脱炭素化・災害対策の強化に向けたEVの普及促進策 - 自治体通信 <a href="https://www.jt-tsushin.jp/articles/case/casestudy_electric_vehicle" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>自治体 企業間 EV シェアリング実証事業 成果報告書 1 背景 - 北九州市 <a href="https://www.city.kitakyushu.lg.jp/files/001098545.pdf" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>「EV化×車両管理」で目指す、ゼロカーボンの先のまちづくり | 自治体通信Online <a href="https://www.jt-tsushin.jp/articles/case/jt57_smauto" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>大阪府能勢町・豊能町におけるリユースEVを活用した運用実証について - 住友三井オートサービス <a href="https://www.smauto.co.jp/news/2023/04/21-65/" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>災害に強いEV活用でBCP対策強化&地域貢献を実現 - コラム... <a href="https://www.ncsol.co.jp/telematics/column/c_008.html" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>中古EV（電気自動車）のリセールバリューを最大化してEV普及を促すための戦略アイデア <a href="https://www.enegaeru.com/resalevalueofusedevs" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>EVで「持つだけで稼げる」時代へ：REXEV、容量市場に正式参入... <a href="https://prtimes.jp/main/html/rd/p/000000142.000048307.html" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>Vehicle to Grid (V2G)：実用化に向けた市場調査 | ReVision Auto&Mobility <a href="https://rev-m.com/column/gii_v2g20220325/" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>令和５年度 分散型エネルギーリソースの更なる活用実証事業 成果報告 【株式会社エナリス】 - SII <a href="https://sii.or.jp/DERaggregation05/uploads/eneres.pdf" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>令和3年度 ダイナミックプライシングによる電動車の充電シフト実証事業 成果報告 【 MCリテールエナジー株式会社】 - SII <a href="https://sii.or.jp/dp03/uploads/5_retailenergy.pdf" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>エネがえるEV・V2H APIを使用した経済効果シミュレーションの実装 #電気自動車 - Qiita <a href="https://qiita.com/satoru_higuchi/items/6f8f5605b9b919b5d352" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>太陽光と電気自動車（EV・V2H）と定置型蓄電池の経済効果... <a href="https://www.enegaeru.com/simulation-of-pv-battery-ev" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>太陽光発電・定置型蓄電池・EV・V2H市場と経済効果シミュレーションについて <a href="https://evv2h.enegaeru.com/ev-v2h" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>再エネ導入の加速を支援する「エネがえるAPI」をアップデート... - 国際航業 <a href="https://www.kkc.co.jp/news/release/2025/03/18_27646/" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>[独自レポートVol.20]シミュレーション結果の保証で、 約7割が住宅用太陽光・蓄電池の導入を検討... | エネがえる総合ブログ <a href="https://www.kkc.co.jp/service/blog/enegaeru/research/article/22945/" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>公用車をEVに切り替え、地域の脱炭素化の先駆けに。 | ジチタイワークス <a href="https://jichitai.works/article/details/2171" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>LiBライフサイクルマネジメントによる環境価値の創出 : 日立評論 <a href="https://www.hitachihyoron.com/jp/papers/2024/07/03/index.html" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>Vol.70 No.1 - トヨタ自動車 <a href="https://global.toyota/pages/global_toyota/mobility/technology/toyota-technical-review/TTR_Vol70-1_J.pdf" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>資源循環経済政策を巡る動向と そのあり方について <a href="https://www.meti.go.jp/shingikai/sankoshin/sangyo_gijutsu/resource_circulation/pdf/003_07_00.pdf" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>TBM、デジタルプロダクトパスポートに適応した再生材調達を支援... <a href="https://prtimes.jp/main/html/rd/p/000000328.000016815.html" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>Ｊークレジット制度とは | Ｊ-クレジット制度 <a href="https://japancredit.go.jp/about/outline/" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>Jクレジット制度の概要と最新の動向 <a href="https://www.renewable-ei.org/pdfdownload/activities/02_MOE_240207_RE-Users.pdf" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>ケミカルリサイクルとは？主な手法や注目される背景、メリット・デメリットも解説 <a href="https://www.mitsui.com/solution/contents/solutions/circular/chemical-recycling" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>プラスチックのケミカルリサイクルで、自動車をサステナブルに | Asahi Kasei Mobility <a href="https://asahi-kasei-mobility.com/interview/circular_economy_1/" class="text-blue-500 hover:underline" target_blank">[link]</a></li>
+                <li>自動車リサイクルにおける再生資源の循環促進に向けて（9） | 三菱... <a href="https://www.murc.jp/library/column/sn_250328/" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>ケミカルリサイクルとは？注目の脱炭素技術について、国内外の動向や課題を解説 <a href="https://mannen.jp/patchtheworld/17545/" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>方法論 - Ｊ－クレジット制度 <a href="https://japancredit.go.jp/about/methodology/" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>J‑クレジット制度 沖縄地域活用事例集 <a href="https://www.okikanka.or.jp/wp/wp-content/uploads/2023Jcredit-Case-Studies.pdf" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>The resurgence of Battery-as-a-Service (BaaS) - Shoosmiths <a href="https://www.shoosmiths.com/insights/articles/battery-as-a-service-an-underexplored-opportunity-the-resurgence-of-baas" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>中国・蔚来自動車（NIO）が「BaaS」を発表 - みらい経営者ONLINE <a href="https://www.miraic.jp/online/8tips/category/tip06/4771.html" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>電気自動車用バッテリーがサブスクに～中国から始まる新しいEVの使い方 | EVsmartブログ <a href="https://blog.evsmart.net/ev-news/battery-subscription-in-china/" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>049_BaaSとは？EVのバッテリーを使い尽くすBaaS ビジネス - リブ・コンサルティング <a href="https://www.libcon.co.jp/mobility/opinion/evx-vol3/" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>注目される中国EVベンチャーNIOの全体像を解説 - アドバンスドテクノロジーX株式会社 <a href="https://www.atx-research.co.jp/contents/2021/01/23/nio" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>The business model of NIO. <a href="https://www.businessmodelsinc.com/en/inspiration/blogs/the-business-model-of-nio" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>NIO Inc. Announces Launch of Battery as a Service and ... <a href="https://ir.nio.com/news-events/news-releases/news-release-details/nio-inc-announces-launch-battery-service-and/" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>NIO Inc.: Currents of Revenue - Harvard Business Review Store <a href="https://store.hbr.org/product/nio-inc-currents-of-revenue/W27676" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>特別目的会社（SPC）とは？メリットやデメリット・設立の流れ・株式会社や合同会社との違いも解説 <a href="https://masouken.com/%E7%89%B9%E5%88%A5%E7%9B%AE%E7%9A%84%E4%BC%9A%E7%A4%BESPC%E3%81%A8%E3%81%AF" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>SPC（特別目的会社）とは？基礎知識から、メリット・デメリット、事例まで徹底解説！ <a href="https://newold.co.jp/2025/04/24/spc/" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>SPC(特別目的会社)とは？ 設立目的や主なスキーム図、活用事例を解説 <a href="https://www.ma-cp.com/about-ma/spc/" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>資産としての電池、その課題と バッテリーエクイティの最大化に向けて <a href="https://www.nri.com/content/900034023.pdf" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>投資信託 きほんの「き」シリーズ 投資信託の運営に関わる3つの会社と「分別管理」 - 鎌倉投信 <a href="https://www.kamakuraim.jp/yuibiyori/detail/---id-1379.html" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>第3 法人税に関する取扱い - 国税庁 <a href="https://www.nta.go.jp/law/tsutatsu/kobetsu/hojin/853/03.htm" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>今さら聞けない「不動産証券化」（24）不動産証券化に「信託」が利用される理由 <a href="https://www.daiwahouse.co.jp/tochikatsu/souken/business/column/clm28-24.html" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+                <li>交通空白の解消に向けて （動産信託の活用） <a href="https://www.mlit.go.jp/sogoseisaku/transport/content/001844204.pdf" class="text-blue-500 hover:underline" target="_blank">[link]</a></li>
+            </ol>
+        </section>
 
-    <script>
-        const slides = document.querySelectorAll('.slide');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const pageCounter = document.getElementById('page-counter');
-        
-        let currentSlide = 0;
-        const totalSlides = slides.length;
+    </main>
 
-        function showSlide(index) {
-            // 現在のスライドを非表示
-            slides[currentSlide].classList.remove('active');
-
-            // 新しいインデックスを計算
-            currentSlide = (index + totalSlides) % totalSlides;
-            
-            // 新しいスライドを表示
-            slides[currentSlide].classList.add('active');
-            
-            // ページ番号を更新
-            pageCounter.textContent = `${currentSlide + 1} / ${totalSlides}`;
-        }
-
-        function nextSlide() {
-            showSlide(currentSlide + 1);
-        }
-
-        function prevSlide() {
-            showSlide(currentSlide - 1);
-        }
-
-        // イベントリスナー
-        nextBtn.addEventListener('click', nextSlide);
-        prevBtn.addEventListener('click', prevSlide);
-        
-        // キーボード操作
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight' || e.key === ' ') {
-                nextSlide();
-            } else if (e.key === 'ArrowLeft') {
-                prevSlide();
-            }
-        });
-
-        // 初期化
-        showSlide(0);
-    </script>
 </body>
 </html>
